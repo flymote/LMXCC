@@ -24,3 +24,4 @@
 
 6、配置安装Freeswitch，请参考我在FSlmx项目的说明
 
+7、tables.sql为数据库结构
