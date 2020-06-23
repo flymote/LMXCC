@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+.tablegreen{padding:0px; margin:auto; font-family:Arial, Tahoma, Verdana, Sans-Serif,幼圆,宋体; border-left:1px solid #ADD8E6; border-collapse:collapse;} 
+.tablegreen th{  font-size:10pt; font-weight:600; color:#303030; border-right:1px solid #ADD8E6; border-bottom:1px solid #ADD8E6;  border-top:1px solid #ADD8E6; letter-spacing:2px; text-align:left; padding:10px 0px 10px 0px; white-space:nowrap; text-align:center; overflow: hidden;} 
+.tablegreen td { border-right:1px solid #ADD8E6; border-bottom:1px solid #ADD8E6; font-size:10pt; padding:3px 3px 3px 6px; color:#303030; word-break:break-all; word-wrap:break-word; white-space:normal;line-height: 150%}
+.pcenter{background:#F7F7F7;text-align:center;font-size:10pt;margin:1px;padding:3px;}
+.pleft{background:#F7F7F7;text-align:left;font-size:10pt;margin-left:20px;margin-right:20px;padding:3px;}
+.line-limit-length {overflow: hidden;text-overflow: ellipsis;white-space: nowrap; }
+ul{background:#efefef;font-size:9pt;margin:5px;padding:20px;line-height: 180%}
+li{background:#f9f7f7;font-size:9pt;padding:3px;margin:2px;line-height: 180%}
+.bgred{font-size:10pt;background:red;color:#ffffff;text-align:center;}
+.smallred{font-size:12px;-webkit-transform-origin-x: 0;-webkit-transform: scale(0.90);color:#ff4f4f;}
+.smallgray{font-size:12px;-webkit-transform-origin-x: 0;-webkit-transform: scale(0.90);color:gray;}
+.smallblack{font-size:12px;-webkit-transform-origin-x: 0;-webkit-transform: scale(0.90);color:black;}
+.smallorange{font-size:12px;-webkit-transform-origin-x: 0;-webkit-transform: scale(0.90);color:orange;}
+.smallsize-font {font-size:10.8px;}
+.smallblue{font-size:12px;-webkit-transform-origin-x: 0;-webkit-transform: scale(0.90);color:#3535ff;}
+.bgblue{background:#6068ff;font-size:10pt;color:#ffffff;text-align:center;}
+.bggray{background:gray;font-size:10pt;color:#ffffff;text-align:center;}
+.bggreen{font-weight:bold;font-size:10pt;background:#93ff93;color:#000000;text-align:center;}
+.bg1{background:#f2f2ff;}
+.bg2{background:#f2fff2;}
+.red{font-size:12pt;color:red;text-align:center;}
+.orange{font-size:12pt;color:orange;text-align:center;}
+.bold14{font-size:14pt;font-family:Arial, Tahoma, Verdana, Sans-Serif,幼圆,宋体;font-weight:bold;text-align:center;}
+.bold16{font-size:16pt;font-family:Arial, Tahoma, Verdana, Sans-Serif,幼圆,宋体;font-weight:bold;text-align:center;}
+.bold12{font-size:12pt;font-family:Verdana, Sans-Serif,幼圆,宋体;font-weight:bold;text-align:center;}
+.inputline{border-color: #878787;border-style: solid;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 1px;border-left-width: 0px;margin-left:3px;padding-left: 3px;padding-right: 3px;}
+.inputline1{color:#ff6820;border-color: #e14502;border-style: solid;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 1px;border-left-width: 0px;margin-left:3px;padding-left: 3px;padding-right: 3px;}
+.fileInput{height:25px;width:180px;font-size:14px;}
+body{ font-family:Arial, Tahoma, Verdana, Sans-Serif,幼圆,宋体;}
+a:link,a:visited{ text-decoration:none; } 
+a:hover{ text-decoration:underline; }
+button{cursor:pointer;}
+textarea{font-size:10pt;line-height: 130%}
+ .act2{font-size:8pt;color:red;text-align:center;}
+#win{position:absolute;top:50%;left:50%;width:400px;height:200px;background:#fff;border:4px solid #f90;margin:-102px 0 0 -202px;display:none;}
+button{cursor:pointer;background:#f90;border:1px solid #303030;padding:3px;}
+h2{font-size:14pt;height:18pt;text-align:right;background:#FC0;border-bottom:3px solid #f90;padding:0px;margin:0px;}
+h2 span{color:#f90;cursor:pointer;background:#fff;border:1px solid #f90;padding:0 2px;}
+.btn {
+  display: inline-block;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 16px;
+  margin:5px;
+  line-height: 1.3333333;
+  text-decoration: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  }
+.btn-green{ font-size: 12pt; color: #fff;  background-color: #1d9d74;  border-color: #198764;cursor:pointer;}
+.btn-blue{ font-size: 10pt; color: #fff;  background-color: #48a4ff;  border-color: #0080ff;cursor:pointer;}

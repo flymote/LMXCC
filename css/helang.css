@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F3F3F3;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei', 'Times New Roman', Times, serif;
+    letter-spacing: 0;
+    min-width: 1200px;
+    color: #333333;
+}
+
+.hl_nav{
+    background-color: #0075EA;
+    position: relative;
+    color: #ffffff;
+    min-width: 1200px;
+    height: 64px;
+}
+.hl_nav a{
+    display: block;
+    text-decoration: none;
+}
+.hl_nav .shade{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 64px;
+    left: 0;
+    z-index: 1;
+    background-color: #EEEEEE;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    box-shadow: 0 5px 15px #CCCCCC;
+    display: none;
+    border-bottom: #ffffff solid 1px;
+    border-bottom: rgba(255,255,255,0.3) solid 1px;
+}
+.hl_nav .nav_list{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -600px;
+    z-index: 2;
+    padding: 0;
+    list-style: none;
+    width: 1200px;
+    overflow: hidden;
+    height: 64px;
+}
+.hl_nav .nav_list>li{
+    padding: 0;
+    float: left;
+    margin: 0;
+    width: 120px;
+    text-align: center;
+    height: 264px;
+}
+.hl_nav .nav_head{
+    height: 64px;
+    line-height: 64px;
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #005FBD;
+}
+.hl_nav .nav_head .icon{
+    font-size: 18px;
+}
+.hl_nav .item{
+    height: 40px;
+    line-height: 40px;
+    color: #333333;
+    position: relative;
+}
+.hl_nav .item:hover:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    bottom: 5px;
+    left: 30px;
+    background-color: #004891;
+}
+.hl_nav .nav_list:hover{
+    height: 264px;
+    transition: height 0.3s;
+}
+.hl_nav .nav_list:hover + .shade{
+    display: block;
+}
+.hl_nav .nav_list>li.highlight:hover{
+    background-color: #ffffff;
+}
+.hl_nav .nav_list>li:hover .nav_head,.hl_nav .nav_list>li.active .nav_head{
+    background-color: #1E8EFF;
+}
+.hl_nav .nav_list>li.right{
+    float: right;
+}
+.hl_nav .nav_list>li:hover .item{
+
+}
+.resp-iframe {
+    position: absolute;
+    top: 64;
+    left: 0;
+    width: 100%;
+    border: 0;
+}
