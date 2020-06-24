@@ -17,8 +17,13 @@
 2、C程序的基本配置是在 c_daemon_src 的config.conf 中，C程序的编译安装在c_daemon_src目录的readme中有详细说明！
 
 3、登录系统的用户账号自己在数据库login_users表里面设置即可（数据表中，app设置 FSlmx 为FS控制台账号，app设置 lmxcc 为域用户管理端账号，isadm表示管理权限，7以上为平台管理人员，5和6为域的管理人员，其他为一般用户），管理程序我没有上传！
+登录账号举例：
+FS管理账号：app:FSlmx user:admin pwd:123456 isadm:9 enabled:1  
+域管理账号：app:lmxcc user:manage pwd:123456 isadm:6 area:test enabled:1 (这是创建test域的管理账号manage)
+域坐席账号：app:lmxcc umin:10000 umax:20000 pwd:1234 isadm:1 area:test enabled:1 (这是创建test域的坐席账号，坐席号从10000到20000，可以使用坐席号登录)
+域需要用FS管理账号去平台创建，创建后再在login_users表自己添加相关域账号让域的相关人员登录即可！
 
-4、记住，登录系统的用户和FS的用户不是一个概念！！登录系统的用户（上面第3点说的）是指登录这个web平台的人员，而FS的用户其实是指坐席人员；
+4、记住，登录系统的用户和FS的用户不是一个概念！！登录系统的用户（上面第3点说的）是指登录这个web平台的人员，而FS控制台的用户管理其实是指坐席人员；
 
 5、安装后在代码中数据库和redis基本设置完毕后，在main.php中进入FS管理台，进行对系统平台的使用设置，先进行 参数设置 ，而后进行 服务器设置 ！
 
