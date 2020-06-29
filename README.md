@@ -5,7 +5,7 @@
 
 2、Freeswitch 核心需启用mariadb数据库，而后通过redis，与C服务进程（实现批量外呼和呼叫状态监听）进行数据交互
 
-3、整体系统包含几个部分：FS的管理端（即本人的开源FSLMX，FS服务后台管理）、企业用户管理端（给呼叫企业使用的）、登录管理（把平台的登录和授权独立了）
+3、整体系统包含几个部分：FS的管理端（即本人的开源[FSLMX](https://github.com/flymote/FSlmx)，FS服务后台管理）、企业用户管理端（给呼叫企业使用的）、登录管理（把平台的登录和授权独立了）
 
 4、平台基本思路：FS采用域管理后实现多企业云平台，使用C编写的服务进行批量外呼支撑和呼叫状态监听（来电提醒和基础的用户端CRM功能）
 
@@ -18,15 +18,16 @@
 
 3、登录系统的用户账号自己在数据库login_users表里面设置即可（数据表中，app设置 FSlmx 为FS控制台账号，app设置 lmxcc 为域用户管理端账号，isadm表示管理权限，7以上为平台管理人员，5和6为域的管理人员，其他为一般用户），管理程序我没有上传！
 登录账号举例：
-FS管理账号：app:FSlmx user:admin pwd:123456 isadm:9 enabled:1  
-域管理账号：app:lmxcc user:manage pwd:123456 isadm:6 area:test enabled:1 (这是创建test域的管理账号manage)
-域坐席账号：app:lmxcc umin:10000 umax:20000 pwd:1234 isadm:1 area:test enabled:1 (这是创建test域的坐席账号，坐席号从10000到20000，可以使用坐席号登录)
-域需要用FS管理账号去平台创建，创建后再在login_users表自己添加相关域账号让域的相关人员登录即可！
+* FS管理账号：app:FSlmx user:admin pwd:123456 isadm:9 enabled:1  
+* 域管理账号：app:lmxcc user:manage pwd:123456 isadm:6 area:test enabled:1 (这是创建test域的管理账号manage)
+* 域坐席账号：app:lmxcc umin:10000 umax:20000 pwd:1234 isadm:1 area:test enabled:1 (这是创建test域的坐席账号，坐席号从10000到20000，可以使用坐席号登录)
+
+域需要用FS管理账号去平台创建，创建域后再创建相关的账号、坐席和组等（这是登录使用FS的账号哦~），而后再在login_users表自己添加相关域账号让域的相关人员登录WEB即可！
 
 4、记住，登录系统的用户和FS的用户不是一个概念！！登录系统的用户（上面第3点说的）是指登录这个web平台的人员，而FS控制台的用户管理其实是指坐席人员；
 
 5、安装后在代码中数据库和redis基本设置完毕后，在main.php中进入FS管理台，进行对系统平台的使用设置，先进行 参数设置 ，而后进行 服务器设置 ！
 
-6、配置安装Freeswitch，请参考我在FSlmx项目的说明
+6、配置安装Freeswitch，请参考我在FSlmx项目的说明:[安装小记](http://blog.sina.com.cn/s/blog_539d6e0c0102zgvm.html)
 
 7、tables.sql为数据库结构
