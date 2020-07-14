@@ -99,7 +99,10 @@ if (!empty($_POST)){
 			if (!file_exists ( __DIR__."/$domain_id"))
 				mkdir( __DIR__."/$domain_id");
 			$re = move_uploaded_file($temp, __DIR__."/$domain_id/task_$time.wav");
-		}else $re = 0;
+		}else{
+			$showinfo .="语音文件的文件不能太大，文件类型需WAV文件！";
+			$re = 0;
+		}
 		if ($re)
 				$sound = "task_$time.wav";
 	}
@@ -113,11 +116,14 @@ if (!empty($_POST)){
 		else
 			$error = $phpFileUploadErrors[$error];
 		$showinfo .= "任务号码上传  $error <br/>";
-		if ($size<12000000 &&  $_FILES["phones"]["type"]=="application/vnd.ms-excel"){
+		if ($size<12000000 &&  ($_FILES["phones"]["type"]=="application/vnd.ms-excel" || $_FILES["phones"]["type"]=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")){
 			if (!file_exists ( __DIR__."/$domain_id"))
 				mkdir( __DIR__."/$domain_id");
 			$re = move_uploaded_file($temp, __DIR__."/$domain_id/task_$time$extname");
-		}else $re = 0;
+		}else{
+			$showinfo .="号码文件的文件不能太大，文件类型需excel或csv类型！";
+			$re = 0;
+		}
 		if ($re)
 			$phones = "task_$time$extname";
 	}
@@ -155,10 +161,10 @@ if (@$row['phones'])
 else
 	$showphones=" 【当前无号码】";
 $html = <<<HTML
-<tr class='bg1'><td width=80><em>任务标识：</em></td><td><input id="task_name" name="task_name" size="20"  maxlength="20" value="$task_name" onclick="this.select();" class="inputline1"/> </td></tr>
-<tr class='bg2'><td><em>话务隶属：</em></td><td><select id='type' name='type'  class='inputline1'><option value =''>-- 选择业务类型 --</option><option value ='房地产'>房地产</option><option value ='金融银行'>金融银行</option><option value ='互联网'>互联网</option><option value ='保险'>保险</option><option value ='教育培训'>教育培训</option><option value ='财务税务'>财务税务</option><option value ='广告创意'>广告创意</option><option value ='家具装修'>家具装修</option><option value ='法律法务'>法律法务</option><option value ='医疗保健'>医疗保健</option><option value ='旅游文化'>旅游文化</option><option value ='人力资源'>人力资源</option><option value ='娱乐休闲'>娱乐休闲</option><option value ='其他'>其他</option></select>  &nbsp; <em>优先级：</em><input name="level" maxlength="3" value="$level" onclick="this.select();" style='width:25px;' class="inputline1"/> </td></tr>
-<tr class='bg1'><td><em>呼叫动作：</em></td><td> &nbsp; <em>接通坐席？</em> <input type="checkbox" id='tocc' name="tocc" value="1"> &nbsp; <em>播放声音？</em> <input type="hidden" name="dmold" value="$dmold"><input type="hidden" name="MAX_FILE_SIZE" value="12000000" /><input name='sound' type='file' class='fileInput'  accept='audio/wav' onchange='soundchange();'/>  <span id='soundlab' style='color:red;'></span>$showsound<script>$('#type').val('$type');$('#type').val('$type');$toccjs</script></td></tr>
-<tr class='bg2'><td><em>上传号码：</em></td><td><input name='phones' type='file' class='fileInput'  accept='.xls,.xlsx,.csv' onchange='csvchange();'/>  <span id='csvlab' style='color:red;'></span>$showphones<br/><span class='bggray'>文件中每个号码一行！本处不验证文件正确性！！任务启用时，将验证文件并导入开始执行！</span></td></tr>
+<tr class='bg1'><td width=80><em>任务标识：</em></td><td style="line-height:60px;"><input id="task_name" name="task_name" size="20"  maxlength="20" value="$task_name" onclick="this.select();" class="inputline1"/> </td></tr>
+<tr class='bg2'><td><em>话务隶属：</em></td><td style="line-height:60px;"><select id='type' name='type'  class='inputline1'><option value =''>-- 选择业务类型 --</option><option value ='房地产'>房地产</option><option value ='金融银行'>金融银行</option><option value ='互联网'>互联网</option><option value ='保险'>保险</option><option value ='教育培训'>教育培训</option><option value ='财务税务'>财务税务</option><option value ='广告创意'>广告创意</option><option value ='家具装修'>家具装修</option><option value ='法律法务'>法律法务</option><option value ='医疗保健'>医疗保健</option><option value ='旅游文化'>旅游文化</option><option value ='人力资源'>人力资源</option><option value ='娱乐休闲'>娱乐休闲</option><option value ='其他'>其他</option></select>  &nbsp; <em>优先级：</em><input name="level" maxlength="3" value="$level" onclick="this.select();" style='width:25px;' class="inputline1"/> </td></tr>
+<tr class='bg1'><td><em>呼叫动作：</em></td><td style="line-height:60px;"> &nbsp; <em>接通坐席？</em> <input type="checkbox" id='tocc' name="tocc" value="1"> &nbsp; <em>播放声音？</em> <input type="hidden" name="dmold" value="$dmold"><input type="hidden" name="MAX_FILE_SIZE" value="12000000" /><input name='sound' type='file' class='fileInput'  accept='audio/wav' onchange='soundchange();'/>  <span id='soundlab' style='color:red;'></span>$showsound<script>$('#type').val('$type');$('#type').val('$type');$toccjs</script></td></tr>
+<tr class='bg2'><td><em>上传号码：</em></td><td style="line-height:60px;"><input name='phones' type='file' class='fileInput'  accept='.xls,.xlsx,.csv' onchange='csvchange();'/>  <span id='csvlab' style='color:red;'></span>$showphones<br/><span class='bggray'>文件中每个号码一行！本处不验证文件正确性！！任务启用时，将验证文件并导入开始执行！</span></td></tr>
 HTML;
 $submitbutton = "<input type=\"submit\" value=\"确认提交\" />";
 if (!empty($_POST)){
