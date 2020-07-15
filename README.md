@@ -28,6 +28,6 @@
 
 5、安装后在代码中数据库和redis基本设置完毕后，在main.php中进入FS管理台，进行对系统平台的使用设置，先进行 参数设置 ，而后进行 服务器设置 ！
 
-6、配置安装Freeswitch，请参考我在FSlmx项目的说明，并附上安装小记： https://blog.csdn.net/onebird_lmx/article/details/107353692 https://blog.csdn.net/onebird_lmx/article/details/107353692 配置使用FS小记： https://blog.csdn.net/onebird_lmx/article/details/107354258
+6、配置安装Freeswitch，请参考我在FSlmx项目的说明，并附上安装小记： [FS1.10版本](https://blog.csdn.net/onebird_lmx/article/details/107353334) [FS1.8及1.6版本](https://blog.csdn.net/onebird_lmx/article/details/107353692) [配置使用FS小记](https://blog.csdn.net/onebird_lmx/article/details/107354258)
 
 7、tables.sql为数据库结构
