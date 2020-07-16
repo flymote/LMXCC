@@ -18,11 +18,14 @@ $phpFileUploadErrors = array(
 ); 
 function insertPhones($info){
 	global $mysqli;
-	include_once 'PHPExcel/Classes/PHPExcel/FileAuto.php';
+	spl_autoload_register(function ($class) {
+		$class = str_replace('PhpOffice\\','',$class);
+		include $class . '.php';
+	});
 	set_time_limit(600);
 	ini_set('memory_limit', '500M');
 	if (file_exists ( __DIR__."/$info[domain_id]/$info[phones]"))
-		$objPHPExcel = PHPExcel_IOFactory::load(__DIR__."/$info[domain_id]/$info[phones]");
+		$objPHPExcel = PhpOffice\PhpSpreadsheet\IOFactory::load(__DIR__."/$info[domain_id]/$info[phones]");
 	else 
 		die("\n文件不存在，无法完成导入！操作取消");
 	if (!$objPHPExcel)
