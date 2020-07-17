@@ -12,7 +12,8 @@
 5、实现的功能：基于FS呼叫中心模块的坐席管理和坐席外呼、自动外呼、来电提醒及简单CRM、给DID使用的IVR配置、域管理、组管理、用户管理、FS服务器配置文件管理、路由配置、呼叫设置、CDR、webrtc的SIP电话（sipml5）
 
 使用配置：
-1、系统的基本配置：数据库和redis的相关配置在三个文件中，Shoudian_db.php (FS控制台的数据库和redis连接设置)\ DM_db.php（域用户管理端的数据库和redis连接设置） \ func.inc.php（登录账号的数据库连接设置），为啥有3个？因为我本意是希望这3个系统可以相互独立开，而本身他们在代码上也是完全独立的
+
+1、系统的基本配置：数据库和redis的相关配置在三个文件中，Shoudian_db.php (FS控制台的数据库和redis连接设置) \ DM_db.php（域用户管理端的数据库和redis连接设置） \ func.inc.php（登录账号的数据库连接设置），为啥有3个？因为我本意是希望这3个系统可以相互独立开，而本身他们在代码上也是完全独立的
 
 2、C程序的基本配置是在 c_daemon_src 的config.conf 中，C程序的编译安装在c_daemon_src目录的readme中有详细说明！
 
@@ -28,6 +29,11 @@
 
 5、安装后在代码中数据库和redis基本设置完毕后，在main.php中进入FS管理台，进行对系统平台的使用设置，先进行 参数设置 ，而后进行 服务器设置 ！
 
-6、配置安装Freeswitch，请参考我在FSlmx项目的说明，并附上安装小记： [FS1.10版本](https://blog.csdn.net/onebird_lmx/article/details/107353334) [FS1.8及1.6版本](https://blog.csdn.net/onebird_lmx/article/details/107353692) [配置使用FS小记](https://blog.csdn.net/onebird_lmx/article/details/107354258)
+6、配置安装Freeswitch，请参考我在FSlmx项目的说明，并附上安装小记： [FS1.10版本](https://blog.csdn.net/onebird_lmx/article/details/107353334)  [FS1.8及1.6版本](https://blog.csdn.net/onebird_lmx/article/details/107353692)  [配置使用FS小记](https://blog.csdn.net/onebird_lmx/article/details/107354258)
 
 7、tables.sql为数据库结构
+
+8、本web系统中是按域启动域的批量外呼服务（lmxcc）：如果域里面的批量呼叫任务结束就会自动停止服务程序并退出！所以如果有新任务，需要启动任务后，在域配置页面中启动外呼（启动外呼会强行停止已在运行的域外呼而后启动一个新的域外呼服务！所以如你确信当前有任务在执行的话，仅需启动任务，任务便会自动进入外呼队列！否则就需要点击 开始外呼 启动外呼服务）
+*记住，启动任务，仅仅表示本任务的已经随时可用，而不是说这个任务已经开始
+
+9、顾客信息管理实现了外呼用户的信息记录和查询，需启动呼叫状态监控服务（ESLeventServ）方可实现坐席呼叫状态的即时同步
