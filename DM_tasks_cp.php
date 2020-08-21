@@ -1,4 +1,5 @@
 <?php
+//注意：要支持xlsx，PhpSpreadsheet必须启用zip和xml模块！（php-pecl-zip php-xml）
 define('APPID', 'lmxcc');
 set_time_limit(60);
 session_start();
@@ -22,8 +23,8 @@ include_once 'DM_db.php';
 function insertPhones($info){
 	global $mysqli;
 	spl_autoload_register(function ($class) {
-		$class = str_replace('PhpOffice\\','',$class);
-		include $class . '.php';
+		$class = str_replace(['PhpOffice\\','\\'],['','/'],$class);
+		include __DIR__."/".$class . '.php';
 	});
 	set_time_limit(600);
 	ini_set('memory_limit', '500M');
