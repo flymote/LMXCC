@@ -1,4 +1,5 @@
 <?php
+//注意：要支持xlsx，PhpSpreadsheet必须启用zip和xml模块！（php-pecl-zip php-xml）
  set_time_limit(600);
  session_start(); 
  date_default_timezone_set('Asia/Shanghai');
@@ -19,8 +20,8 @@ $phpFileUploadErrors = array(
 function insertPhones($info){
 	global $mysqli;
 	spl_autoload_register(function ($class) {
-		$class = str_replace('PhpOffice\\','',$class);
-		include $class . '.php';
+		$class = str_replace(['PhpOffice\\','\\'],['','/'],$class);
+		include __DIR__."/".$class . '.php';
 	});
 	set_time_limit(600);
 	ini_set('memory_limit', '500M');
