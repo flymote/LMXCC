@@ -54,6 +54,8 @@ if (!empty($_POST)){
 	$check = 0;
 	if (!$fail){
 		$users = explode("\r\n", $user_name);
+		if ($_POST['act']=='add')
+			$sql = "insert into fs_users (`user_id`,`user_name`,`password`,`domain_id`,`group_id`) values ";
 		foreach ($users as $one){
 			$one=str_replace(['，','.','。',';','；','/'],',',trim($one));
 			$user_ = explode(",", $one);
@@ -66,7 +68,6 @@ if (!empty($_POST)){
 			}else
 				$group = "";
 			if ($_POST['act']=='add'){
-				$sql = "insert into fs_users (`user_id`,`user_name`,`password`,`domain_id`,`group_id`) values ";
 				if (!in_array($user_id,$user_ids)){
 					$sql .= "($user_id,'$name','$password','$domain_id','$group'),";
 				}else {
