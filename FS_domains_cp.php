@@ -218,7 +218,7 @@ foreach ($menu as $k =>$one){
 	}elseif  ($one['a']=='menu-exec-app'){
 		if (empty($one['p']))
 			continue;
-		$input = " 按键： <input name='menu[$k][d]' value='$one[d]' oninput ='limitnum(this)' style='width:30px;'> 转分机： <input name='menu[$k][p]' oninput ='limitnum(this)' value='$one[p]'> <span class='smallgray smallsize-font'> 按下相应键值后跳转设定分机，对应固定分机！</span>";
+		$input = " 按键： <input name='menu[$k][d]' value='$one[d]' oninput ='limitnum(this)' style='width:30px;'> APP动作： <input name='menu[$k][p]' oninput ='limitnum(this)' value='$one[p]'> <span class='smallgray smallsize-font'> 按下相应键值后执行设定动作，如bridge ... ！</span>";
 	}elseif ( $one['a'] =='menu-exec-app1' )
 	$input = " 分机号码长度： <input name='menu[$k][d]' oninput ='limitnum(this)' value='$one[d]' style='width:30px;'> <span class='smallgray smallsize-font'> 填写分机号码的长度，如输入4，表示连续输入4位分机号后即跳转此分机！</span>";
 	elseif ( $one['a'] =='menu-exec-app2' )
@@ -254,7 +254,7 @@ $maDefault
 function add() {
 num++;
 var content = "<p class='pcenter'>";
-content += "<select name='menu["+num+"][a]'><option value='menu-exec-app'>执行app</option><option value='menu-exec-api'>执行api</option><option value='menu-play-sound'>播放声音</option><option value='menu-sub'>调子菜单</option><option value='menu-say-phrase'>播放宏</option><option value='menu-back'>返回上级</option><option value='menu-top'>回主菜单</option><option value='menu-exit'>退出菜单</option></select> 按键 <input name='menu["+num+"][d]'> 参数 <input name='menu["+num+"][p]' size=60> <span onclick='remove(this)' style='cursor:pointer;'  title='删除'>&otimes;</span>";
+content += "<select name='menu["+num+"][a]'><option value='menu-exec-app'>执行app</option><option value='menu-exec-app1'>拨分机号</option><option value='menu-exec-app2'>坐席自动</option><option value='menu-play-sound'>播放声音</option><option value='menu-sub'>调子菜单</option><option value='menu-say-phrase'>播放宏</option><option value='menu-back'>返回上级</option><option value='menu-top'>回主菜单</option><option value='menu-exit'>退出菜单</option></select> 按键 <input name='menu["+num+"][d]'> 参数 <input name='menu["+num+"][p]' size=60> <span onclick='remove(this)' style='cursor:pointer;'  title='删除'>&otimes;</span>";
 content +="</p>"
 $("#menu_area").append(content);
 }
