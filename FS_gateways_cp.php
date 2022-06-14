@@ -22,7 +22,7 @@ if (isset($_GET['editGateway'])){
 		$showinfo .=" id $id 更新 ";
 	}else{
 		$result = false;
-		$tmp = implode(array_keys($lab), "`,`");
+		$tmp = implode("`,`",array_keys($lab));
 		$sql = "insert into fs_gateways (`$tmp`) values(";
 		$sql_end = " )";
 		$showinfo .=" 添加 ";
@@ -88,7 +88,7 @@ foreach ($lab as $key=>$value){
 }
 if (!empty($_POST)){
 	$submitbutton = ' <a href="?editGateway='.$id.'">刷新页面</a>';
-	$sql .= implode($tmp, ","); 
+	$sql .= implode(",",$tmp);
 	$sql  .= $sql_end;
 	$result = true;
 	if (empty($_POST['gatewayname'])){
